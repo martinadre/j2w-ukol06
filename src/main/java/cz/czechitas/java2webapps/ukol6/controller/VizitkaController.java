@@ -69,10 +69,19 @@ public class VizitkaController {
         return "redirect:/";
     }
 
-    @GetMapping("/edit/{id:[0-9]+}")
-    public Object edit(@PathVariable long id) {
+    @GetMapping("/edit")
+    public Object formular(Long id) {
         Optional<Vizitka> vizitka = vizitkaRepository.findById(id);
         return new ModelAndView("formular")
                 .addObject("vizitka", vizitka.get());
+    }
+
+    @PostMapping("/edit")
+    public Object upravit(@ModelAttribute("vizitka") @Valid Vizitka vizitka, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "formular";
+        }
+        vizitkaRepository.save(vizitka);
+        return "redirect:/";
     }
 }

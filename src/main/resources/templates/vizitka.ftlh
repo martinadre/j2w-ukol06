@@ -1,7 +1,7 @@
 [#ftl]
 [@c.page]
     <div class="detail">
-        <form action="/edit/" method="post">
+        <form action="/edit" method="get">
             <input type="hidden" name="id" value="${id}" />
             <button type="submit" class="btn btn-primary">upravit</button>
         </form>
