@@ -34,7 +34,7 @@ public class Vizitka {
     private String obec;
 
     @NotBlank
-    @Length(max = 5)
+    @Pattern(regexp = "\\d{5}")
     private String psc;
 
     @Length(max = 100)

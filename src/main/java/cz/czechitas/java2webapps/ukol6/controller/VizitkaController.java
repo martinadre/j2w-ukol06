@@ -62,4 +62,17 @@ public class VizitkaController {
         vizitkaRepository.save(vizitka);
         return "redirect:/";
     }
+
+    @PostMapping("/delete")
+    public String delete(Long id) {
+        vizitkaRepository.deleteById(id);
+        return "redirect:/";
+    }
+
+    @GetMapping("/edit/{id:[0-9]+}")
+    public Object edit(@PathVariable long id) {
+        Optional<Vizitka> vizitka = vizitkaRepository.findById(id);
+        return new ModelAndView("formular")
+                .addObject("vizitka", vizitka.get());
+    }
 }

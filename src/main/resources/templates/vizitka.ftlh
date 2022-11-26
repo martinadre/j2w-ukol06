@@ -1,6 +1,14 @@
 [#ftl]
 [@c.page]
     <div class="detail">
+        <form action="/edit/" method="post">
+            <input type="hidden" name="id" value="${id}" />
+            <button type="submit" class="btn btn-primary">upravit</button>
+        </form>
+        <form action="/delete" method="post">
+            <input type="hidden" name="id" value="${id}" />
+            <button type="submit" class="btn btn-primary">smazat</button>
+        </form>
         <div class="vizitka">
             <div class="jmeno">${vizitka.celeJmeno}</div>
             <div class="firma">${vizitka.firma}</div>
