@@ -77,7 +77,7 @@ public class VizitkaController {
     }
 
     @PostMapping("/edit")
-    public Object upravit(@ModelAttribute("vizitka") @Valid Vizitka vizitka, BindingResult bindingResult) {
+    public Object upravit(@PathVariable long id, @ModelAttribute("vizitka") @Valid Vizitka vizitka, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "formular";
         }

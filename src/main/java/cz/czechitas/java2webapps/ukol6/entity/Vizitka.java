@@ -124,8 +124,8 @@ public class Vizitka {
         this.web = web;
     }
 
-    public String celaAdresa () {
-        return ulice + " " + psc + " " + obec;
+    public String getCelaAdresa () {
+        return ulice + ", " + obec + ", " + psc;
     }
 
 
